@@ -1,9 +1,11 @@
 //Declarative
 pipeline{
-	agent any
+	//agent any
+	 agent { docker { image 'image:latest'} }
 		stages {
 			stage('build') {
 				steps {
+					sh 'mvn --version'
 					echo "Build"	
 			}
 		}
