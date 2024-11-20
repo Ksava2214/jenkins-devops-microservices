@@ -1,3 +1,3 @@
 git add *
-git commit -m "update_`date`"
+git commit -m "updated"
 git push -u origin

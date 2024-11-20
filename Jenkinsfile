@@ -1,7 +1,5 @@
 node {
-	stage {
-		echo "Build is success"
-		echo "Test is success"
+		echo "Build"
+		echo "Test"
 		echo "Integration Test"
-	}
 }
