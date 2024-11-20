@@ -3,6 +3,6 @@ node {
 		echo "Build is success"
 	}
 	stage('Test') {
-		echo "Test is suuccess"
+		echo "Test is success"
 	}
 }
