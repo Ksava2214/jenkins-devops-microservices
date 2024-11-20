@@ -1,7 +1,7 @@
 //Declarative
 pipeline{
 	//agent any
-	 agent { docker { image 'image:latest'} }
+	 agent { docker { image 'image:3.9.9'} }
 		stages {
 			stage('build') {
 				steps {
