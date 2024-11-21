@@ -30,7 +30,7 @@ pipeline{
 			stage('Build Docker Image') {
 				steps {
 					script{
-						dockerImage = docker.build("ksava2214/currency-exchange-devops:${$env.BUILD_TAG}")
+						dockerImage = docker.build("ksava2214/currency-exchange-devops:22}")
 					}
 				}
 			}
