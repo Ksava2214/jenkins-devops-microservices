@@ -21,15 +21,27 @@ pipeline{
 				 sh "mvn clean compile"
 			}
 		  }
-		
-			stage('Test') {
-				steps {
-					sh "mvn test"
+		  	stage('Package'){
+				steps{
+					sh "mvn package -DskipTests"
 				}
 			}
-			stage('Integration Test') {
+		
+			stage('Build Docker Image') {
 				steps {
-					sh "mvn failsafe:integration-test failsafe:verify"
+					script{
+						dockerImage = docker.build("ksava2214/currency-exchange-devops:${$env.BUILD_TAG}")
+					}
+				}
+			}
+			stage('Push Docker Image') {
+				steps {
+					script{
+							docker.withRegistry('','dockerhub'){
+							dockerImage.push();
+							dockerImage.push('latest');
+						}
+					}
 			}
 		}
 	}
